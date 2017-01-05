@@ -1,0 +1,54 @@
+package com.practice.stacks;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
+
+public class MaxElement {
+
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int max = Integer.MIN_VALUE;
+	    Deque<StackNode> stack = new ArrayDeque<StackNode>();
+
+	    while (n > 0) {
+	        int choice = sc.nextInt();
+	        if(choice == 1) {
+	            int val = sc.nextInt();
+	            max = Math.max(val, max);
+
+	            stack.push(new StackNode(val, max));
+	        } else if(choice == 2) {
+	            if(!stack.isEmpty())
+	                stack.pop();
+	            // reset max
+	            if(stack.isEmpty())
+	                max = Integer.MIN_VALUE;
+	            else
+	                max = stack.peek().curMax;
+	        } else if(choice == 3) {
+	            if(!stack.isEmpty()) {
+	                System.out.println(stack.peek().curMax);
+	            }
+	        }
+
+	        n--;
+	    }
+	    sc.close();
+	}
+
+	private static class StackNode {
+	    int val;
+	    int curMax;
+	    public StackNode(int val, int curMax) {
+	        this.val = val;
+	        this.curMax = curMax;
+	    }
+
+	    public String toString() {
+	        return val + " [" + curMax + "]";
+	    }
+	}
+
+}
