@@ -32,8 +32,7 @@ public class BalancedBrackets {
 					stack.removeFirst();
 					System.out.println("Popping { from stack");
 				} else {
-					stack.addFirst(c);
-					System.out.println("Pushing { into stack");
+					return false;
 				}
 				break;
 
@@ -42,8 +41,7 @@ public class BalancedBrackets {
 					stack.removeFirst();
 					System.out.println("Popping ( from stack");
 				} else {
-					stack.addFirst(c);
-					System.out.println("Pushing ) into stack");
+					return false;
 				}
 				break;
 
@@ -52,8 +50,7 @@ public class BalancedBrackets {
 					stack.removeFirst();
 					System.out.println("Popping [ from stack");
 				} else {
-					stack.addFirst(c);
-					System.out.println("Pushing ] into stack");
+					return false;
 				}
 				break;
 
