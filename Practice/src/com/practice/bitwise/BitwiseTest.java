@@ -39,6 +39,33 @@ public class BitwiseTest {
 	}
 	
 	@Test
+	public void checkPowerOf4(){
+		int num = 1048576;
+		String binaryFormat = Integer.toBinaryString(num);
+		System.out.println(binaryFormat);
+		char[] binaryArray = binaryFormat.toCharArray();
+
+		// First character must be 1
+		if(binaryArray[0]!='1'){
+			System.out.println(num+" is not a power of 4");
+			return;
+		}
+		// Remaining characters must be 0
+		for(int i=1 ; i < binaryArray.length ; i++){
+			if(binaryArray[i]!='0'){
+				System.out.println(num+" is not a power of 4");
+				return;
+			}
+		}
+		// Remaining 0 characters must be even
+		if((binaryArray.length-1)%2!=0){
+			System.out.println(num+" is not a power of 4");
+			return;
+		}
+		System.out.println(num+" is a power of 4");
+	}
+	
+	@Test
 	public void convertIntToBit(){
 		for(int i=0 ; i<=8 ; i++){
 			System.out.println(Integer.toBinaryString(i));
