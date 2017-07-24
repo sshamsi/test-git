@@ -23,6 +23,11 @@ public class LonelyInteger {
 	        
 	 }
 	 
+	 /*
+	  * a is an array of integers where all
+	  * but one of the integers occur in pairs
+	  * The method returns the lonely integer.
+	  */
 	 public static int lonelyIntegerBitSolution(int[] a) {
 		 	// Any number xor'd with itself will give zero.
 		    // Any number xor'd with zero will give the number.
@@ -35,15 +40,15 @@ public class LonelyInteger {
 	 }
 
 	    
-	    public static void main(String[] args) {
-	        Scanner in = new Scanner(System.in);
-	        int n = in.nextInt();
-	        int a[] = new int[n];
-	        for(int a_i=0; a_i < n; a_i++){
-	            a[a_i] = in.nextInt();
-	        }
-	        in.close();
-	        System.out.println(lonelyInteger(a));
-	    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int a[] = new int[n];
+        for(int a_i=0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
+        }
+        in.close();
+        System.out.println(lonelyInteger(a));
+    }
 
 }
