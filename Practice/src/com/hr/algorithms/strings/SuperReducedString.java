@@ -6,16 +6,17 @@ import java.util.Deque;
 /**
  * 
  * @author sshamsi
- * https://www.hackerrank.com/challenges/reduced-string/problem
- * Problem: Delete any pair of adjacent letters with same value.
+ * Problem: https://www.hackerrank.com/challenges/reduced-string/problem
+ * Delete any pair of adjacent letters with same value.
  * Repeat the above operation as many times as it can be performed. 
+ * Examples:
+ * aaabccddd should become abd
+ * aa should become empty string
+ * baab should become empty string
  */
 public class SuperReducedString {
 
 	/**
-	 * aaabccddd should become abd
-	 * aa should become empty string
-	 * baab should become empty string
 	 * brute force solution
 	 * @param s
 	 * @return reduced string
@@ -46,9 +47,7 @@ public class SuperReducedString {
 	    }
 	 
 		/**
-		 * aaabccddd should become abd
-		 * aa should become empty string
-		 * baab should become empty string
+		 * 
 		 * efficient stack solution
 		 * @param s
 		 * @return reduced string
