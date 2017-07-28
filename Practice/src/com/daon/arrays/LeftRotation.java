@@ -4,20 +4,28 @@ import java.util.Scanner;
 
 public class LeftRotation {
 
+	/**
+	 * 
+	 * @param a (array to be shifted)
+	 * @param n (size of the array a)
+	 * @param k (no. of times the elements of the array to be left shifted)
+	 * @return left shifted array
+ 	 * Solution: We create a new array named 'rotated' and copy the elements 
+ 	 * from array 'a' to array 'rotated' directly at the desired position.
+ 	 */
     public static int[] arrayLeftRotation(int[] a, int n, int k) {
-        int[] rotated = new int[n];
-        int shift = n-k;
-        for(int i=0; i<n; i++){
-            int index = i+shift;
-            if(index<n){
-                rotated[index] = a[i];   
-            }
-            else{
-                index = index - n;
-                rotated[index] = a[i]; 
-            }    
-        }
-        return rotated;
+    	 int[] rotated = new int[n];
+         
+         for(int i=0 ; i<n ;i++){
+        	 // move k to the beginning of the array
+        	 // once end of the array is reached 
+             if(k==n){
+                 k = 0;
+             }
+             rotated[i] = a[k++];
+         } 
+         
+         return rotated;
     }
     
     public static void main(String[] args) {
