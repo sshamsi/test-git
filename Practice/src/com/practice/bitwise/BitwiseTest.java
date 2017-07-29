@@ -44,5 +44,14 @@ public class BitwiseTest {
 			System.out.println(Integer.toBinaryString(i));
 		}
 	}
+	
+	@Test
+	public void xor(){
+		int a = 2;
+		int b = 4;
+		int c = 4;
+		System.out.println(Integer.toBinaryString(a^b^c));
+		System.out.println(a^b^c);
+	}
 
 }
