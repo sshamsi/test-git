@@ -33,6 +33,7 @@ public class Test1 {
 			            visited[i] = false;
 			
 			        for (int i = 0; i < friends.length; i++) {
+			        	// Skip 
 			            if (!visited[i]) {
 			                noOfCircles++;
 			                visited[i] = true;
