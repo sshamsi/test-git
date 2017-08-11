@@ -81,6 +81,13 @@ public class ReverseLinkList {
 		
 	}
 	
+	public void reverseUsingRecursion(Node head){
+		
+		while(head.next!=null){
+			reverseUsingRecursion(head.next);
+		}
+	}
+	
 	private Node createLinkedList(){
 		Node one = new Node(1);
 		Node two = new Node(2);
