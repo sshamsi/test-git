@@ -2,31 +2,78 @@ package com.practice.sort;
 
 import java.util.Arrays;
 
+import org.junit.Test;
+
 public class QuickSort1 {
 	
-	public static void main(String args[]){
-		int[] numbers = new int[]{4,5,2,1,3};
-		//int[] numbers = new int[]{2,1};
-		sort(numbers);
-		System.out.println(Arrays.toString(numbers));
+	@Test
+	public void test1(){
+		int[] elements = {4,5,3,7,2};
+		// 3,5,4,7,2
+		// 3,2,4,7,5
+		// 2,3,4,7,5
+		quickSort(elements, 0, elements.length-1);
+		System.out.println(Arrays.toString(elements));
 	}
 	
-	public static void sort(int numbers[]){
+	@Test
+	public void test2(){
+		int[] elements = {38,81,22,48,13,69,93,14,45,58,79,72};
+		quickSort(elements, 0, elements.length-1);
+		System.out.println(Arrays.toString(elements));
+	}
+	
+	public void quickSort(int[] elements, int low, int high){
 		
-		if(numbers.length<2){
-			return;
+		if(low<high){
+			int partitionIndex = partition(elements, low, high);
+			quickSort(elements, low, partitionIndex-1);
+			quickSort(elements, partitionIndex+1, high);
 		}
 		
-		//int pivot = numbers.length/2;
-		//System.out.println("pivot is "+pivot);
-		for(int i=0, j=numbers.length-1; i<j ; i++,j--){
-			if (numbers[i] > numbers[j]){
-				int temp = numbers[i];
-				numbers[i] = numbers[j];
-				numbers[j] = temp;
+	}
+	
+	/**
+	 * Puts the pivot at the right position in the array.
+	 * This must be done in linear time.
+	 * @param elements
+	 * @param pivot
+	 * @return Returns the index of the new position of the pivot
+	 */
+	public int partition(int[] elements, int low, int high){
+		
+		int pivotIndex = (low+high)/2;
+
+		// swap pivot with low
+		int pivot = elements[pivotIndex];
+		elements[pivotIndex] = elements[low];
+		elements[low] = pivot;
+		
+		int i = low+1;
+		int j = high;
+		
+		
+		while(i<=j){
+			if(elements[i]>pivot && elements[j]<pivot){
+				int temp = elements[i];
+				elements[i] = elements[j];
+				elements[j] = temp;
+				i++;
+				j--;
+			}
+			else if(elements[j]>pivot){
+				j--;
+			}
+			else if(elements[i]<pivot){
+				i++;
 			}
 		}
-		sort(Arrays.copyOfRange(numbers, 0, numbers.length/2));
-		sort(Arrays.copyOfRange(numbers, numbers.length/2, numbers.length));
+		
+		// swap j with low
+		elements[low] = elements[j]; 
+		elements[j] = pivot;
+		
+		return j;
 	}
+
 }
