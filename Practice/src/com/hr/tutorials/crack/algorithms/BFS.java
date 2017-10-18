@@ -12,7 +12,7 @@ public class BFS {
 		g.addEdge(1, 3);
 		g.addEdge(2, 3);
 		
-		g.BFS(3);
+		g.BFS(0);
 	}
 	
 	public static class Graph{
